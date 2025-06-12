@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 24.8.1.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="00:00:00"/>
+	<style type="text/css">
+		@page { size: 8.27in 11.69in; margin: 0.79in }
+		p { line-height: 115%; margin-bottom: 0.1in; background: transparent }
+		pre { background: transparent }
+		pre.western { font-family: "Liberation Mono", monospace; font-size: 10pt }
+		pre.cjk { font-family: "NSimSun", monospace; font-size: 10pt }
+		pre.ctl { font-family: "Liberation Mono", monospace; font-size: 10pt }
+	</style>
+</head>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><pre class="western">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;pt-BR&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Nosso Quiz&lt;/title&gt;
+  &lt;style&gt;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .quiz-container {
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      padding: 30px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    h1 {
+      color: #d6336c;
+      margin-bottom: 20px;
+    }
+
+    .question {
+      font-size: 18px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    button {
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background-color: #ffe6e6;
+      color: #d6336c;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background-color: #ffd1dc;
+    }
+
+    .result {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #d6336c;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class=&quot;quiz-container&quot;&gt;
+    &lt;h1&gt;Quiz do Coração 💖&lt;/h1&gt;
+    &lt;div id=&quot;quiz&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;result&quot; id=&quot;result&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;script&gt;
+    const questions = [
+      {
+        question: &quot;Qual sua cantora favorita?&quot;,
+        options: [&quot;Billie Eilish&quot;, &quot;Taylor Swift&quot;, &quot;Lana Del Rey&quot;, &quot;Ariana Grande&quot;],
+        answer: &quot;Lana Del Rey&quot;
+      },
+      {
+        question: &quot;Qual é seu carro dos sonhos?&quot;,
+        options: [&quot;Civic rebaixado&quot;, &quot;BMW e36&quot;, &quot;Escort&quot;, &quot;Fusca&quot;],
+        answer: &quot;Escort&quot;
+      },
+      {
+        question: &quot;Qual era a nossa brincadeira das antigas?&quot;,
+        options: [&quot;Esconde-esconde no escuro&quot;, &quot;Vai coiote&quot;, &quot;Pique esconde&quot;, &quot;Cata boi&quot;],
+        answer: &quot;Vai coiote&quot;
+      },
+      {
+        question: &quot;Qual é seu pet favorito?&quot;,
+        options: [&quot;Coelho&quot;, &quot;Cachorro&quot;, &quot;Hamster&quot;, &quot;Gato&quot;],
+        answer: &quot;Cachorro&quot;
+      },
+      {
+        question: &quot;Se você fosse rica, o que faria?&quot;,
+        options: [&quot;Teria uma coleção de bolsas caras&quot;, &quot;Ajudaria varias pessoas&quot;, &quot;Compraria uma mansão na praia&quot;, &quot;Viajaria o mundo sozinha&quot;],
+        answer: &quot;Ajudaria cada vendedor que batesse na minha porta&quot;
+      },
+      {
+        question: &quot;Quem é seu piloto de F1 favorito?&quot;,
+        options: [&quot;Sebastian Vettel&quot;, &quot;Lewis Hamilton&quot;, &quot;Fernando Alonso&quot;, &quot;Max Verstappen&quot;],
+        answer: &quot;Lewis Hamilton&quot;
+      },
+      {
+        question: &quot;Qual é seu jogo favorito?&quot;,
+        options: [&quot;Minecraft&quot;, &quot;Roblox&quot;, &quot;GTA V&quot;, &quot;Fortnite&quot;],
+        answer: &quot;Minecraft&quot;
+      },
+      {
+        question: &quot;Há quanto tempo nos conhecemos?&quot;,
+        options: [&quot;14 anos&quot;, &quot;8 anos&quot;, &quot;10 anos&quot;, &quot;5 anos&quot;],
+        answer: &quot;14 anos&quot;
+      },
+      {
+        question: &quot;O que eu mais gosto em você?&quot;,
+        options: [&quot;Seu olhar&quot;, &quot;Seu jeito bobo&quot;, &quot;Tudo isso&quot;, &quot;Seu sorriso&quot;],
+        answer: &quot;Tudo isso&quot;
+      }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    const quizDiv = document.getElementById(&quot;quiz&quot;);
+    const resultDiv = document.getElementById(&quot;result&quot;);
+
+    function loadQuestion() {
+      if (currentQuestion &lt; questions.length) {
+        const q = questions[currentQuestion];
+        quizDiv.innerHTML = `
+          &lt;div class=&quot;question&quot;&gt;${q.question}&lt;/div&gt;
+          &lt;div class=&quot;options&quot;&gt;
+            ${q.options.map(option =&gt; `&lt;button onclick=&quot;checkAnswer('${option}')&quot;&gt;${option}&lt;/button&gt;`).join('')}
+          &lt;/div&gt;
+        `;
+      } else {
+        quizDiv.innerHTML = &quot;&quot;;
+        resultDiv.innerHTML = `Você acertou ${score} de ${questions.length} - Espero ter te deixado feliz :) 💘`;
+      }
+    }
+
+    function checkAnswer(selected) {
+      if (selected === questions[currentQuestion].answer) {
+        score++;
+      }
+      currentQuestion++;
+      loadQuestion();
+    }
+
+    loadQuestion();
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</body>
+</html>

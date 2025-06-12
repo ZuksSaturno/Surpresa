@@ -1,27 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
-	<meta name="generator" content="LibreOffice 24.8.1.2 (Linux)"/>
-	<meta name="created" content="00:00:00"/>
-	<meta name="changed" content="00:00:00"/>
-	<style type="text/css">
-		@page { size: 8.27in 11.69in; margin: 0.79in }
-		p { line-height: 115%; margin-bottom: 0.1in; background: transparent }
-		pre { background: transparent }
-		pre.western { font-family: "Liberation Mono", monospace; font-size: 10pt }
-		pre.cjk { font-family: "NSimSun", monospace; font-size: 10pt }
-		pre.ctl { font-family: "Liberation Mono", monospace; font-size: 10pt }
-	</style>
-</head>
-<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><pre class="western">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;pt-BR&quot;&gt;
-&lt;head&gt;
-  &lt;meta charset=&quot;UTF-8&quot;&gt;
-  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-  &lt;title&gt;Nosso Quiz&lt;/title&gt;
-  &lt;style&gt;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosso Quiz by ZK</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <style>
     * {
       margin: 0;
       padding: 0;
@@ -87,81 +71,81 @@
       margin-top: 20px;
       color: #d6336c;
     }
-  &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;div class=&quot;quiz-container&quot;&gt;
-    &lt;h1&gt;Quiz do Coração 💖&lt;/h1&gt;
-    &lt;div id=&quot;quiz&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;result&quot; id=&quot;result&quot;&gt;&lt;/div&gt;
-  &lt;/div&gt;
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>Quiz do Coração 💖</h1>
+    <div id="quiz"></div>
+    <div class="result" id="result"></div>
+  </div>
 
-  &lt;script&gt;
+  <script>
     const questions = [
       {
-        question: &quot;Qual sua cantora favorita?&quot;,
-        options: [&quot;Billie Eilish&quot;, &quot;Taylor Swift&quot;, &quot;Lana Del Rey&quot;, &quot;Ariana Grande&quot;],
-        answer: &quot;Lana Del Rey&quot;
+        question: "Qual sua cantora favorita?",
+        options: ["Billie Eilish", "Taylor Swift", "Lana Del Rey", "Ariana Grande"],
+        answer: "Lana Del Rey"
       },
       {
-        question: &quot;Qual é seu carro dos sonhos?&quot;,
-        options: [&quot;Civic rebaixado&quot;, &quot;BMW e36&quot;, &quot;Escort&quot;, &quot;Fusca&quot;],
-        answer: &quot;Escort&quot;
+        question: "Qual é seu carro dos sonhos?",
+        options: ["Civic rebaixado", "BMW e36", "Escort", "Fusca"],
+        answer: "Escort"
       },
       {
-        question: &quot;Qual era a nossa brincadeira das antigas?&quot;,
-        options: [&quot;Esconde-esconde no escuro&quot;, &quot;Vai coiote&quot;, &quot;Pique esconde&quot;, &quot;Cata boi&quot;],
-        answer: &quot;Vai coiote&quot;
+        question: "Qual era a nossa brincadeira das antigas?",
+        options: ["Esconde-esconde no escuro", "Vai coiote", "Pique esconde", "Cata boi"],
+        answer: "Vai coiote"
       },
       {
-        question: &quot;Qual é seu pet favorito?&quot;,
-        options: [&quot;Coelho&quot;, &quot;Cachorro&quot;, &quot;Hamster&quot;, &quot;Gato&quot;],
-        answer: &quot;Cachorro&quot;
+        question: "Qual é seu pet favorito?",
+        options: ["Coelho", "Cachorro", "Hamster", "Gato"],
+        answer: "Cachorro"
       },
       {
-        question: &quot;Se você fosse rica, o que faria?&quot;,
-        options: [&quot;Teria uma coleção de bolsas caras&quot;, &quot;Ajudaria varias pessoas&quot;, &quot;Compraria uma mansão na praia&quot;, &quot;Viajaria o mundo sozinha&quot;],
-        answer: &quot;Ajudaria cada vendedor que batesse na minha porta&quot;
+        question: "Se você fosse rica, o que faria?",
+        options: ["Teria uma coleção de bolsas caras", "Ajudaria varias pessoas", "Compraria uma mansão na praia", "Viajaria o mundo sozinha"],
+        answer: "Ajudaria varias pessoas"
       },
       {
-        question: &quot;Quem é seu piloto de F1 favorito?&quot;,
-        options: [&quot;Sebastian Vettel&quot;, &quot;Lewis Hamilton&quot;, &quot;Fernando Alonso&quot;, &quot;Max Verstappen&quot;],
-        answer: &quot;Lewis Hamilton&quot;
+        question: "Quem é seu piloto de F1 favorito?",
+        options: ["Sebastian Vettel", "Lewis Hamilton", "Fernando Alonso", "Max Verstappen"],
+        answer: "Lewis Hamilton"
       },
       {
-        question: &quot;Qual é seu jogo favorito?&quot;,
-        options: [&quot;Minecraft&quot;, &quot;Roblox&quot;, &quot;GTA V&quot;, &quot;Fortnite&quot;],
-        answer: &quot;Minecraft&quot;
+        question: "Qual é seu jogo favorito?",
+        options: ["Minecraft", "Roblox", "GTA V", "Fortnite"],
+        answer: "Minecraft"
       },
       {
-        question: &quot;Há quanto tempo nos conhecemos?&quot;,
-        options: [&quot;14 anos&quot;, &quot;8 anos&quot;, &quot;10 anos&quot;, &quot;5 anos&quot;],
-        answer: &quot;14 anos&quot;
+        question: "Há quanto tempo nos conhecemos?",
+        options: ["14 anos", "8 anos", "10 anos", "5 anos"],
+        answer: "14 anos"
       },
       {
-        question: &quot;O que eu mais gosto em você?&quot;,
-        options: [&quot;Seu olhar&quot;, &quot;Seu jeito bobo&quot;, &quot;Tudo isso&quot;, &quot;Seu sorriso&quot;],
-        answer: &quot;Tudo isso&quot;
+        question: "O que eu mais gosto em você?",
+        options: ["Seu olhar", "Seu jeito bobo", "Tudo isso", "Seu sorriso"],
+        answer: "Tudo isso"
       }
     ];
 
     let currentQuestion = 0;
     let score = 0;
 
-    const quizDiv = document.getElementById(&quot;quiz&quot;);
-    const resultDiv = document.getElementById(&quot;result&quot;);
+    const quizDiv = document.getElementById("quiz");
+    const resultDiv = document.getElementById("result");
 
     function loadQuestion() {
-      if (currentQuestion &lt; questions.length) {
+      if (currentQuestion < questions.length) {
         const q = questions[currentQuestion];
         quizDiv.innerHTML = `
-          &lt;div class=&quot;question&quot;&gt;${q.question}&lt;/div&gt;
-          &lt;div class=&quot;options&quot;&gt;
-            ${q.options.map(option =&gt; `&lt;button onclick=&quot;checkAnswer('${option}')&quot;&gt;${option}&lt;/button&gt;`).join('')}
-          &lt;/div&gt;
+          <div class="question">${q.question}</div>
+          <div class="options">
+            ${q.options.map(option => `<button onclick="checkAnswer('${option}')">${option}</button>`).join('')}
+          </div>
         `;
       } else {
-        quizDiv.innerHTML = &quot;&quot;;
+        quizDiv.innerHTML = "";
         resultDiv.innerHTML = `Você acertou ${score} de ${questions.length} - Espero ter te deixado feliz :) 💘`;
       }
     }
@@ -175,8 +159,6 @@
     }
 
     loadQuestion();
-  &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</pre>
+  </script>
 </body>
 </html>

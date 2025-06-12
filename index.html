@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nosso Quiz by ZK</title>
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   <style>
     * {
       margin: 0;
@@ -25,7 +25,7 @@
     .quiz-container {
       background-color: #fff;
       border-radius: 20px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
       padding: 30px;
       max-width: 500px;
       width: 100%;
@@ -85,48 +85,53 @@
       {
         question: "Qual sua cantora favorita?",
         options: ["Billie Eilish", "Taylor Swift", "Lana Del Rey", "Ariana Grande"],
-        answer: "Lana Del Rey"
+        answer: "Lana Del Rey",
       },
       {
         question: "Qual é seu carro dos sonhos?",
         options: ["Civic rebaixado", "BMW e36", "Escort", "Fusca"],
-        answer: "Escort"
+        answer: "Escort",
       },
       {
         question: "Qual era a nossa brincadeira das antigas?",
         options: ["Esconde-esconde no escuro", "Vai coiote", "Pique esconde", "Cata boi"],
-        answer: "Vai coiote"
+        answer: "Vai coiote",
       },
       {
         question: "Qual é seu pet favorito?",
         options: ["Coelho", "Cachorro", "Hamster", "Gato"],
-        answer: "Cachorro"
+        answer: "Cachorro",
       },
       {
         question: "Se você fosse rica, o que faria?",
-        options: ["Teria uma coleção de bolsas caras", "Ajudaria varias pessoas", "Compraria uma mansão na praia", "Viajaria o mundo sozinha"],
-        answer: "Ajudaria varias pessoas"
+        options: [
+          "Teria uma coleção de bolsas caras",
+          "Ajudaria varias pessoas",
+          "Compraria uma mansão na praia",
+          "Viajaria o mundo sozinha",
+        ],
+        answer: "Ajudaria varias pessoas",
       },
       {
         question: "Quem é seu piloto de F1 favorito?",
         options: ["Sebastian Vettel", "Lewis Hamilton", "Fernando Alonso", "Max Verstappen"],
-        answer: "Lewis Hamilton"
+        answer: "Lewis Hamilton",
       },
       {
         question: "Qual é seu jogo favorito?",
         options: ["Minecraft", "Roblox", "GTA V", "Fortnite"],
-        answer: "Minecraft"
+        answer: "Minecraft",
       },
       {
         question: "Há quanto tempo nos conhecemos?",
         options: ["14 anos", "8 anos", "10 anos", "5 anos"],
-        answer: "14 anos"
+        answer: "14 anos",
       },
       {
         question: "O que eu mais gosto em você?",
         options: ["Seu olhar", "Seu jeito bobo", "Tudo isso", "Seu sorriso"],
-        answer: "Tudo isso"
-      }
+        answer: "Tudo isso",
+      },
     ];
 
     let currentQuestion = 0;
@@ -141,12 +146,26 @@
         quizDiv.innerHTML = `
           <div class="question">${q.question}</div>
           <div class="options">
-            ${q.options.map(option => `<button onclick="checkAnswer('${option}')">${option}</button>`).join('')}
+            ${q.options
+              .map((option) => `<button onclick="checkAnswer('${option}')">${option}</button>`)
+              .join("")}
           </div>
         `;
+        resultDiv.innerHTML = "";
       } else {
         quizDiv.innerHTML = "";
-        resultDiv.innerHTML = `Você acertou ${score} de ${questions.length} - Espero ter te deixado feliz :) 💘`;
+        if (score === questions.length) {
+          resultDiv.innerHTML = `
+            <div style="font-size: 24px; color: #ff007f;">
+              🎉 Você acertou TODAS!<br><br>
+              💘 Você é a escolhida! 💘<br>
+              Sempre soube que era você...<br><br>
+              🌹 Te amo, minha princesa! 🌹
+            </div>
+          `;
+        } else {
+          resultDiv.innerHTML = `Você acertou ${score} de ${questions.length} - Espero ter te deixado feliz :) 💘`;
+        }
       }
     }
 
